@@ -16,8 +16,8 @@ namespace BethanysPieShopHRM.HR
 
         public int NumberOfPieTastesInvented
         {
-            get { return numberOfPieTastesInvented; }
-            private set { numberOfPieTastesInvented = value; }
+            get => numberOfPieTastesInvented;
+            private set => numberOfPieTastesInvented = value;
         }
 
         public void ResearchNewPieTastes(int researchHours)

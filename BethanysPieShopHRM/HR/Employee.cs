@@ -29,66 +29,53 @@ namespace BethanysPieShopHRM.HR
 
         public string FirstName
         {
-            get { return firstName; }
-            set
-            {
-                firstName = value;
-            }
+            get => firstName;
+            set => firstName = value;
         }
 
         public string LastName
         {
             get => lastName;
-            set { lastName = value; }
+            set => lastName = value;
         }
 
         public string Email
         {
-            get { return email; }
-            set { email = value; }
+            get => email;
+            set => email = value;
         }
 
         public int NumberOfHoursWorked
         {
-            get { return numberOfHoursWorked; }
-             protected set { numberOfHoursWorked = value; }
+            get => numberOfHoursWorked;
+             protected set => numberOfHoursWorked = value;
         }
 
         public double Wage
         {
-            get { return wage; }
-            private set { wage = value; }
+            get => wage;
+            private set => wage = value;
         }
 
         public double? HourlyRate
         {
-            get { return hourlyRate; }
+            get => hourlyRate;
             set
             {
-                if (hourlyRate < 0)
-                {
-                    hourlyRate = 0;
-                }
-                else
-                {
-                    hourlyRate = value;
-                }
-            }   
+                hourlyRate = hourlyRate < 0 ? (double?)0 : value;
+            }
         }
 
         public DateTime BirthDay
         {
-            get { return birthDay; }
-            set { birthDay = value; }
+            get => birthDay;
+            set => birthDay = value;
         }
 
         public Address Address
         {
-            get { return address; }
-            set
-            {
-                address = value;
-            }
+            get => address;
+            set => address = value;
         }
 
 

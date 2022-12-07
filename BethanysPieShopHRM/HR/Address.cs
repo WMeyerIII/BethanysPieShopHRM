@@ -24,26 +24,26 @@ namespace BethanysPieShopHRM.HR
 
         public string Street
         {
-            get { return street; }
-            set { street = value; }
+            get => street;
+            set => street = value;
         }
 
         public string HouseNumber
         {
-            get { return houseNumber; }
-            set { houseNumber = value; }
+            get => houseNumber;
+            set => houseNumber = value;
         }
 
         public string ZipCode
         {
-            get { return zipCode; }
-            set { zipCode = value; }
+            get => zipCode;
+            set => zipCode = value;
         }
 
         public string City
         {
-            get { return city; }
-            set { city = value; }
+            get => city;
+            set => city = value;
         }
     }
 }
