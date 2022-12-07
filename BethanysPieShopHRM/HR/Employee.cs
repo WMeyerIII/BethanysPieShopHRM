@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BethanysPieShopHRM.HR
 {
-    internal class Employee : IEmployee
+    public class Employee : IEmployee
     {
 
         private string firstName;
@@ -30,6 +30,7 @@ namespace BethanysPieShopHRM.HR
         public string FirstName
         {
             get => firstName;
+            // same as get { return = firstName; }
             set => firstName = value;
         }
 
@@ -60,10 +61,19 @@ namespace BethanysPieShopHRM.HR
         public double? HourlyRate
         {
             get => hourlyRate;
-            set
-            {
-                hourlyRate = hourlyRate < 0 ? (double?)0 : value;
-            }
+            set => hourlyRate = hourlyRate < 0 ? (double?)0 : value;
+            //{
+            //    if (hourlyRate < 0)
+            //    {
+            //        hourlyRate = 0;
+            //    }
+            //    else
+            //    {
+            //        hourlyRate = value;
+            //    }
+            //} This is simplified to the preceding argument
+
+
         }
 
         public DateTime BirthDay
