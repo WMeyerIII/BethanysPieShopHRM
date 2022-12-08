@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BethanysPieShopHRM.HR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace BethanysPieShopHRM
 {
     internal class Utilities
     {
-        
+        #region Practice
         public static void UsingExpressionBodiedSyntax()
         {
             int amounth = 1234;
@@ -68,6 +69,39 @@ namespace BethanysPieShopHRM
 
             return monthlyWage * numberOfMonthsWorked + bonus;
         }
+        #endregion
 
+        #region UIMethods
+
+        internal static void CheckForExistingEmployeeFile()
+        {
+
+        }
+
+        internal static void RegisterEmployee(List<Employee> employees)
+        {
+
+        }
+
+        internal static void UnregisterEmployees(List<Employee> employees)
+        {
+
+        }
+
+        internal static void ViewAllEmployees(List<Employee> employees)
+        {
+
+        }
+
+        internal static void SaveEmployees(List<Employee> employees)
+        {
+
+        }
+
+        internal static void LoadEmployees(List<Employee> employees)
+        {
+
+        }
+        #endregion
     }
 }

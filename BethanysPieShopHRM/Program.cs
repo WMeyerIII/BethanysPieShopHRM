@@ -6,7 +6,7 @@ using BethanysPieShopHRM.HR;
 
 List<Employee> employees= new List<Employee>();
 
-Console.ForegroundColor= ConsoleColor.White
+Console.ForegroundColor = ConsoleColor.White;
 Console.WriteLine("**********************************");
 Console.WriteLine("* Bethany's Pie Shop Employee App*");
 Console.WriteLine("**********************************");
@@ -53,7 +53,7 @@ do
             break;
         case "9": break;
         default:
-            Console.WriteLine("Invalid selection. Please try again")
+            Console.WriteLine("Invalid selection. Please try again");
             break;
     }
 } while (userSelection != "9");
