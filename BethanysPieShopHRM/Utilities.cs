@@ -165,6 +165,15 @@ namespace BethanysPieShopHRM
 
         internal static void SaveEmployees(List<Employee> employees)
         {
+            for (int i = 0; i<= employees.Count; i++)
+            {
+                string path = $"{directory}{filename}";
+                StringBuilder sb = new StringBuilder();
+
+                sb.Append(employees[i]);
+            }
+
+            //File.AppendText();
 
         }
 
