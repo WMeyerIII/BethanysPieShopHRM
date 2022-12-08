@@ -72,7 +72,7 @@ namespace BethanysPieShopHRM
         #endregion
 
         #region UIMethods
-       
+
         private static string directory = @"C:\data\BethanysPieShopHRM\";
         private static string filename = "employees.txt";
 
