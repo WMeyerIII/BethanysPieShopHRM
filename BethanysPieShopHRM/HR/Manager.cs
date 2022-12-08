@@ -8,7 +8,7 @@ namespace BethanysPieShopHRM.HR
 {
     internal class Manager : Employee
     {
-        public Manager(string firstName, string lastName, string email, DateTime birthday, int hourlyRate) : base(firstName, lastName, email, birthday, hourlyRate)
+        public Manager(string firstName, string lastName, string email, DateTime birthday, double? hourlyRate) : base(firstName, lastName, email, birthday, hourlyRate)
         {
         }
 
