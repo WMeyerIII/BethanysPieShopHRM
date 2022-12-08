@@ -2,23 +2,83 @@
 using BethanysPieShopHRM;
 using BethanysPieShopHRM.HR;
 
-Console.WriteLine("Creating an Employee");
-Console.WriteLine("---------------------\n");
+#region UserInterface 
 
-IEmployee bethany = new StoreManager("Bethany", "Smith", "bethany@snowball.be", new DateTime(1979, 1, 16), 25);
-Manager mary = new("Mary", "Smith", "mary@snowball.be", new DateTime(1965, 1, 16), 30);
+List<Employee> employees= new List<Employee>();
 
-Employee george = new("George", "Jones", "george@snowball.be", new DateTime(1984, 3, 28), 30);
-Employee jake = new ("Jake", "Nicols", "jake@snowball.be", new DateTime(1995, 8, 16), 25, "New Street", "123", "123456", "Pie Ville");
-
-
-JrResearcher jerry = new("Jerry", "Smith", "jerry@snowball.be", new DateTime(1930, 1, 12), 17);
-
-Developer ian = new("Ian", "Block", "ian@snowball.be", new(1970, 12, 12), 50);
+Console.ForegroundColor= ConsoleColor.White
+Console.WriteLine("**********************************");
+Console.WriteLine("* Bethany's Pie Shop Employee App*");
+Console.WriteLine("**********************************");
+Console.ForegroundColor = ConsoleColor.White;
 
 
-Console.WriteLine("---------------------\n");
-Console.WriteLine("Creating an Employee");
+string userSelection;
+Console.ForegroundColor = ConsoleColor.Blue;
+
+Utilities.CheckForExistingEmployeeFile();
+
+do
+{
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine($"Loaded {employees.Count} employee(s)\n\n");
+
+    Console.ForegroundColor = ConsoleColor.White;
+    Console.WriteLine("********************");
+    Console.WriteLine("* Select an Action *");
+    Console.WriteLine("********************");
+
+    Console.WriteLine("1: Register employee");
+    Console.WriteLine("2: View all employees");
+    Console.WriteLine("3: Save data");
+    Console.WriteLine("4: Load data");
+    Console.WriteLine("9: Quit application");
+    Console.WriteLine("Your Selection: ");
+
+    userSelection= Console.ReadLine();
+
+    switch (userSelection)
+    {
+        case "1":
+            Utilities.RegisterEmployee(employees);
+            break;
+        case "2":
+            Utilities.ViewAllEmployees(employees);
+            break;
+        case "3":
+            Utilities.SaveEmployees(employees);
+            break;
+        case "4":
+            Utilities.LoadEmployees(employees);
+            break;
+        case "9": break;
+        default:
+            Console.WriteLine("Invalid selection. Please try again")
+            break;
+    }
+} while (userSelection != "9");
+
+Console.WriteLine("Thanks for using the application!");
+
+#endregion
+
+//Console.WriteLine("Creating an Employee");
+//Console.WriteLine("---------------------\n");
+
+//IEmployee bethany = new StoreManager("Bethany", "Smith", "bethany@snowball.be", new DateTime(1979, 1, 16), 25);
+//Manager mary = new("Mary", "Smith", "mary@snowball.be", new DateTime(1965, 1, 16), 30);
+
+//Employee george = new("George", "Jones", "george@snowball.be", new DateTime(1984, 3, 28), 30);
+//Employee jake = new ("Jake", "Nicols", "jake@snowball.be", new DateTime(1995, 8, 16), 25, "New Street", "123", "123456", "Pie Ville");
+
+
+//JrResearcher jerry = new("Jerry", "Smith", "jerry@snowball.be", new DateTime(1930, 1, 12), 17);
+
+//Developer ian = new("Ian", "Block", "ian@snowball.be", new(1970, 12, 12), 50);
+
+
+//Console.WriteLine("---------------------\n");
+//Console.WriteLine("Creating an Employee");
 
 //List<IEmployee> employees = new List<IEmployee>();
 //employees.Add(bethany);
@@ -34,26 +94,26 @@ Console.WriteLine("Creating an Employee");
 //}
 
 
-bethany.DisplayEmployeeDetails();
-bethany.PerformWork(2);
-bethany.PerformWork(2);
-bethany.PerformWork(2);
-bethany.PerformWork(5);
-bethany.CalculateBonusAndBonusTax();
-bethany.GiveBonus();
-bethany.RecieveWage();
+//bethany.DisplayEmployeeDetails();
+//bethany.PerformWork(2);
+//bethany.PerformWork(2);
+//bethany.PerformWork(2);
+//bethany.PerformWork(5);
+//bethany.CalculateBonusAndBonusTax();
+//bethany.GiveBonus();
+//bethany.RecieveWage();
 
-mary.DisplayEmployeeDetails();
-mary.PerformWork(2);
-mary.PerformWork(2);
-mary.PerformWork(2);
-mary.PerformWork(2);
-mary.AttendManagerMeeting();
-mary.RecieveWage();
+//mary.DisplayEmployeeDetails();
+//mary.PerformWork(2);
+//mary.PerformWork(2);
+//mary.PerformWork(2);
+//mary.PerformWork(2);
+//mary.AttendManagerMeeting();
+//mary.RecieveWage();
 
-jerry.ResearchNewPieTastes(5);
-jerry.ResearchNewPieTastes(5);
-jerry.ResearchNewPieTastes(5);
+//jerry.ResearchNewPieTastes(5);
+//jerry.ResearchNewPieTastes(5);
+//jerry.ResearchNewPieTastes(5);
 
 
 //int[] sampleArray = new int[5];

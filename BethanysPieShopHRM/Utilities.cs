@@ -8,7 +8,7 @@ namespace BethanysPieShopHRM
 {
     internal class Utilities
     {
-
+        
         public static void UsingExpressionBodiedSyntax()
         {
             int amounth = 1234;
@@ -18,19 +18,19 @@ namespace BethanysPieShopHRM
             int yearlyWageForEmployee = CalculateYearlyWageExpressionBodies(bonus: bonus, monthlyWage: amounth, numberOfMonthsWorked: months);
         }
 
-        public static int CalculateYearlyWageExpressionBodies(int monthlyWage, int numberOfMonthsWorked, int bonus) => monthlyWage + bonus;
+        public static int CalculateYearlyWageExpressionBodies(int monthlyWage, int numberOfMonthsWorked, int bonus) => monthlyWage * numberOfMonthsWorked + bonus;
         public static void UsingNamedArguments()
         {
-            int amounth = 1234;
+            int amount = 1234;
             int months = 12;
             int bonus = 600;
 
-            int yearlyWageForEmployee = CalculateYearlyWageWithNamed(bonus: bonus, monthlyWage: amounth, numberOfMonthsWorked: months);
+            int yearlyWageForEmployee = CalculateYearlyWageWithNamed(bonus: bonus, monthlyWage: amount, numberOfMonthsWorked: months);
         }
         public static int CalculateYearlyWageWithNamed(int monthlyWage, int numberOfMonthsWorked, int bonus)
         {
-            Console.WriteLine($"The Yearly wage is: {monthlyWage + numberOfMonthsWorked + bonus}");
-            return monthlyWage + numberOfMonthsWorked + bonus;
+            Console.WriteLine($"The Yearly wage is: {monthlyWage * numberOfMonthsWorked + bonus}");
+            return monthlyWage * numberOfMonthsWorked + bonus;
         }
 
         public static void UsingOptionalParameters()
@@ -44,9 +44,9 @@ namespace BethanysPieShopHRM
 
         public static int CalculateYearlyWageWithOptional(int monthlyWage, int numberOfMonthsWorked, int bonus = 0)
         {
-            Console.WriteLine($"The Yearly wage is: {monthlyWage + numberOfMonthsWorked + bonus}");
+            Console.WriteLine($"The Yearly wage is: {monthlyWage * numberOfMonthsWorked + bonus}");
 
-            return monthlyWage + numberOfMonthsWorked + bonus;
+            return monthlyWage * numberOfMonthsWorked + bonus;
         }
         public static int CalculateYearlyWage(int monthlyWage, int numberOfMonthsWorked)
         {
@@ -58,15 +58,15 @@ namespace BethanysPieShopHRM
         }
         public static int CalculateYearlyWage(int monthlyWage, int numberOfMonthsWorked, int bonus)
         {
-            Console.WriteLine($"The Yearly wage is: {monthlyWage + numberOfMonthsWorked + bonus}");
+            Console.WriteLine($"The Yearly wage is: {monthlyWage * numberOfMonthsWorked + bonus}");
 
             return monthlyWage + numberOfMonthsWorked + bonus;
         }
         public static double CalculateYearlyWage(double monthlyWage, double numberOfMonthsWorked, double bonus)
         {
-            Console.WriteLine($"The Yearly wage is: {monthlyWage + numberOfMonthsWorked + bonus}");
+            Console.WriteLine($"The Yearly wage is: {monthlyWage * numberOfMonthsWorked + bonus}");
 
-            return monthlyWage + numberOfMonthsWorked + bonus;
+            return monthlyWage * numberOfMonthsWorked + bonus;
         }
 
     }
