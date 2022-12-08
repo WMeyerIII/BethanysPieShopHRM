@@ -20,25 +20,27 @@ Developer ian = new("Ian", "Block", "ian@snowball.be", new(1970, 12, 12), 50);
 Console.WriteLine("---------------------\n");
 Console.WriteLine("Creating an Employee");
 
-List<IEmployee> employees = new List<IEmployee>();
-employees.Add(bethany);
-employees.Add(george);
-employees.Add(jake);
-employees.Add(ian);
+//List<IEmployee> employees = new List<IEmployee>();
+//employees.Add(bethany);
+//employees.Add(george);
+//employees.Add(jake);
+//employees.Add(ian);
 
-foreach(Employee employee in employees)
-{
-    employee.DisplayEmployeeDetails();
-    employee.GiveBonus();
-    employee.GiveCompliment();
-}
+//foreach(Employee employee in employees)
+//{
+//    employee.DisplayEmployeeDetails();
+//    employee.GiveBonus();
+//    employee.GiveCompliment();
+//}
 
 
 bethany.DisplayEmployeeDetails();
 bethany.PerformWork(2);
 bethany.PerformWork(2);
 bethany.PerformWork(2);
-bethany.PerformWork(2);
+bethany.PerformWork(5);
+bethany.CalculateBonusAndBonusTax();
+bethany.GiveBonus();
 bethany.RecieveWage();
 
 mary.DisplayEmployeeDetails();

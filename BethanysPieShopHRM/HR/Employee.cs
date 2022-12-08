@@ -16,8 +16,10 @@ namespace BethanysPieShopHRM.HR
         private int numberOfHoursWorked;
         private double wage;
         private double? hourlyRate;
+        private double bonus;
 
         private DateTime birthDay;
+
 
         const int minimalHoursWorkedUnit = 1;
 
@@ -76,6 +78,12 @@ namespace BethanysPieShopHRM.HR
 
         }
 
+        public double Bonus
+        {
+            get => bonus;
+            set => bonus = value;
+        }
+
         public DateTime BirthDay
         {
             get => birthDay;
@@ -130,41 +138,41 @@ namespace BethanysPieShopHRM.HR
         }
 
 
-        public int CalculateBonus(int bonus)
+        //public int CalculateBonus(int bonus)
+        //{
+        //    if (numberOfHoursWorked > 10)
+        //        bonus *= 2;
+        //    return bonus;
+        //}
+
+
+        //public double? CalculateBonusAndBonusTax(double? bonus, double? HourlyRate, out double? bonusTax)
+        public double CalculateBonusAndBonusTax()
         {
-            if (numberOfHoursWorked > 10)
-                bonus *= 2;
-
-            Console.WriteLine($"The employee got a bonus of {bonus}!");
-            return bonus;
-        }
-
-
-        public int CalculateBonusAndBonusTax(int bonus, out int bonusTax)
-        {
-            bonusTax = 0;
+            double bonusTax = 0;
             if (NumberOfHoursWorked > 10)
-                bonus *= 2;
+                Bonus = (double)(HourlyRate * 1.5);
+            
+            if (Bonus >= 200)
+                bonusTax = Bonus / 10.0;
+            Bonus -= bonusTax;
 
-            if (bonus >= 200)
-                bonusTax = bonus / 10;
-            bonus -= bonusTax;
-
-            Console.WriteLine($"The employee got a bonus of {bonus} and the tax on the bonus is {bonusTax}");
-            return bonus;
+            Console.WriteLine($"The employee got a bonus of {Bonus} and the tax on the bonus is {bonusTax}");
+            return Bonus;
         }
 
         public virtual void GiveBonus()
         {
-            Console.WriteLine($"{FirstName} {LastName} recieved a generic bonus of 100!");
+            Console.WriteLine($"{FirstName} {LastName} recieved a bonus of {Bonus}!");
         }
 
         public double RecieveWage(bool resetHours = true)
         {
+
             double wageBeforeTax = NumberOfHoursWorked * HourlyRate.Value;
             double taxAmount = wageBeforeTax * taxRate;
 
-            Wage = wageBeforeTax - taxAmount;
+            Wage = wageBeforeTax  - taxAmount;
 
             Console.WriteLine($"{FirstName} {LastName} has recieved {Wage} for {NumberOfHoursWorked} hour(s) of work");
 
