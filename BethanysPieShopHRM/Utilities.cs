@@ -72,17 +72,84 @@ namespace BethanysPieShopHRM
         #endregion
 
         #region UIMethods
+       
+        private static string directory = @"C:\data\BethanysPieShopHRM\";
+        private static string filename = "employees.txt";
 
         internal static void CheckForExistingEmployeeFile()
         {
-
+            string path = $"{directory}{filename}";
+            if (File.Exists(path))
+            {
+                Console.WriteLine("The file with employee data was found.");
+            }
+            else
+            {
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Directory is ready for saving files.");
+                    Console.ResetColor();
+                }
+            }
         }
 
         internal static void RegisterEmployee(List<Employee> employees)
         {
+            Console.WriteLine("What kind of employee would you like to register?");
+            Console.WriteLine("1.Employee\n2.Manager\n3.Store Manager\n4.Researcher\n5.Junior Researcher");
+            Console.WriteLine("Your Selection (as a number)");
+            string employeeType = Console.ReadLine();
 
+            if (employeeType != "1" && employeeType != "2" && employeeType != "3" && employeeType != "4" && employeeType != "5")
+            {
+                Console.WriteLine("Invalid selection. Please try again.");
+                    return;
+            }
+
+            Console.WriteLine("Enter their first name: ");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter their last name: ");
+            string lastName = Console.ReadLine();
+
+            string email = $"{firstName}{lastName}@snowball.be";
+
+            Console.WriteLine("Enter their birthday: ");
+            DateTime birthDay = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter their hourly rate: ");
+            string hourlyRate = Console.ReadLine();
+            double rate = double.Parse(hourlyRate);
+
+            Employee employee = null;
+
+            switch (employeeType)
+            {
+                case "1": 
+                    employee = new Employee(firstName, lastName, email, birthDay, rate);
+                    break;
+                case "2":
+                    employee = new Manager(firstName, lastName, email, birthDay, rate);
+                    break;
+                case "3":
+                    employee = new StoreManager(firstName, lastName, email, birthDay, rate);
+                    break;
+                case "4":
+                    employee = new Researcher(firstName, lastName, email, birthDay, rate);
+                    break;
+                case "5":
+                    employee = new JrResearcher(firstName, lastName, email, birthDay, rate);
+                    break;
+            }
+
+            employees.Add(employee);
+
+            Console.WriteLine("Employee created!\n\n");
         }
 
+        
         internal static void UnregisterEmployees(List<Employee> employees)
         {
 
@@ -90,7 +157,10 @@ namespace BethanysPieShopHRM
 
         internal static void ViewAllEmployees(List<Employee> employees)
         {
-
+            for (int i = 0; i < employees.Count; i++)
+            {
+                employees[i].DisplayEmployeeDetails();
+            }
         }
 
         internal static void SaveEmployees(List<Employee> employees)
