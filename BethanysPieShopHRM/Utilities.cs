@@ -176,7 +176,7 @@ namespace BethanysPieShopHRM
                 sb.Append($"firstName:{employee.FirstName};");
                 sb.Append($"lastName:{employee.LastName};");
                 sb.Append($"email:{employee.Email};");
-                sb.Append($"birthDay:{employee.BirthDay.ToLongDateString()};");
+                sb.Append($"birthDay:{employee.BirthDay.ToShortDateString()};");
                 sb.Append($"hourlyRate:{employee.HourlyRate};");
                 sb.Append($"type:{type};");
 
