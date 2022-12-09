@@ -252,6 +252,24 @@ namespace BethanysPieShopHRM
             }
 
         }
+
+        internal static void LoadEmployeeById(List<Employee> employees)
+        {
+            try
+            {
+                Console.Write("Enter the employee ID to see their info: \n");
+
+                int selectedId = int.Parse(Console.ReadLine());
+                Employee selectedEmployee = employees[selectedId];
+                selectedEmployee.DisplayEmployeeDetails();
+            }
+            catch(FormatException fex)
+            {
+                Console.ForegroundColor= ConsoleColor.Red;
+                Console.WriteLine("Please enter the ID as a number\n\n");
+                Console.ResetColor();
+            }
+        }
         #endregion
     }
 }
