@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -85,7 +87,7 @@ namespace BethanysPieShopHRM
             }
             else
             {
-                if (!Directory.Exists(directory))
+                if (Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -165,16 +167,41 @@ namespace BethanysPieShopHRM
 
         internal static void SaveEmployees(List<Employee> employees)
         {
-            for (int i = 0; i<= employees.Count; i++)
-            {
-                string path = $"{directory}{filename}";
-                StringBuilder sb = new StringBuilder();
+            string path = $"{directory}{filename}";
+            StringBuilder sb = new StringBuilder();
 
-                sb.Append(employees[i]);
+            foreach (Employee employee in employees)
+            {
+                string type = GetEmployeeType(employee);
+                sb.Append($"firstName:{employee.FirstName};");
+                sb.Append($"lastName:{employee.LastName};");
+                sb.Append($"email:{employee.Email};");
+                sb.Append($"birthDay:{employee.BirthDay.ToLongDateString()};");
+                sb.Append($"hourlyRate:{employee.HourlyRate};");
+                sb.Append($"type:{type};");
+
+                sb.Append(Environment.NewLine);
             }
 
-            //File.AppendText();
+            File.WriteAllText( path, sb.ToString() );
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Employees saved successfully!");
+            Console.ResetColor();
+        }
 
+        internal static string GetEmployeeType(Employee employee)
+        {
+            if (employee is Manager)
+                return "2";
+            else if (employee is StoreManager)
+                return "3";
+            else if (employee is JrResearcher)
+                return "4";
+            else if (employee is Researcher)
+                return "5";
+            else if (employee is Employee)
+                return "1";
+            return "0";
         }
 
         internal static void LoadEmployees(List<Employee> employees)
