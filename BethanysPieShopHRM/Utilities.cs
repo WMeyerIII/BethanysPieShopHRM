@@ -252,7 +252,7 @@ namespace BethanysPieShopHRM
 
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"Loaded {employees.Count} employees!\n\n");
-                    Console.ResetColor();
+                    //Console.ResetColor();
                 }
             }
             catch (IndexOutOfRangeException iex)
@@ -260,7 +260,7 @@ namespace BethanysPieShopHRM
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Something went wrong parsing the file, please check the data!");
                 Console.WriteLine(iex.Message);
-                Console.ResetColor();
+                //Console.ResetColor();
             }
             catch (FileNotFoundException fnfex)
             {
@@ -269,7 +269,7 @@ namespace BethanysPieShopHRM
                 Console.WriteLine(fnfex.Message);
                 File.AppendAllText(errorpath, $"{DateTime.Now.ToString()}\n");
                 File.AppendAllText(errorpath, $"{ fnfex.StackTrace}\n");
-                Console.ResetColor();
+                //Console.ResetColor();
 
             }
             catch (Exception ex)
@@ -277,6 +277,11 @@ namespace BethanysPieShopHRM
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Something went wrong while loading the file!");
                 Console.WriteLine(ex.Message);
+                //Console.ResetColor();
+
+            }
+            finally 
+            {
                 Console.ResetColor();
 
             }
